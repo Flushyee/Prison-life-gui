@@ -1,0 +1,206 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+local Window = Library.CreateLib("Prison Life GUI", "GrapeTheme")
+
+local Tab = Window:NewTab("Guns")
+
+local Section = Tab:NewSection("Give yourself guns")
+
+Section:NewButton("M9", "Gives player a M9(gun)", function()
+    local ohInstance1 = workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP
+
+workspace.Remote.ItemHandler:InvokeServer(ohInstance1)
+end)
+
+
+Section:NewButton("Remington 870", "Gives player a Remington 870(gun)", function()
+    local ohInstance1 = workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP
+
+workspace.Remote.ItemHandler:InvokeServer(ohInstance1)
+end)
+
+
+Section:NewButton("AK-47", "Gives player a AK-47(gun)", function()
+    local ohInstance1 = workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP
+
+workspace.Remote.ItemHandler:InvokeServer(ohInstance1)
+end)
+
+
+Section:NewButton("M4A1", "Gives player a M4A1(gun)", function()
+    local ohInstance1 = workspace.Prison_ITEMS.giver["M4A1"].ITEMPICKUP
+
+workspace.Remote.ItemHandler:InvokeServer(ohInstance1)
+end)
+
+
+Section:NewButton("Crude Knife", "Gives player a Knife(melee)", function()
+    local ohInstance1 = workspace.Prison_ITEMS.single["Crude Knife"].ITEMPICKUP
+
+workspace.Remote.ItemHandler:InvokeServer(ohInstance1)
+end)
+
+
+local Tab = Window:NewTab("Local Player")
+
+local Section = Tab:NewSection("Walkspeed and Jumppower")
+
+
+Section:NewSlider("Walkspeed", "Changes player walkspeed", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+
+Section:NewSlider("JumpPower", "Changes player Jumppower", 500, 50, function(j) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = j
+end)
+
+
+Section:NewButton("Reset Walkspeed", "Resets players walkspeed", function()
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16 
+end)
+
+
+Section:NewButton("Reset JumpPower", "Resets players JumpPower", function()
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50 
+end)
+
+local Tab = Window:NewTab("Gun Mods")
+
+local Section = Tab:NewSection("Gun Mods")
+
+Section:NewButton("M9 Mod(only works while having gun in inv)", "Makes M9 Full auto ", function()
+    local gun = require(game:GetService("Players").LocalPlayer.Backpack.M9.GunStates)
+
+gun["AutoFire"] = true
+
+gun["FireRate"] = 0
+
+gun["Spread"] = 3
+end)
+
+
+local Tab = Window:NewTab("Teleports")
+
+local Section = Tab:NewSection("Teleports")
+
+Section:NewButton("Crim Base", "guess", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-920.821044921875, 95.32717895507812, 2138.347412109375)
+
+end)
+
+Section:NewButton("Gaurds Room", "guess", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(838.4561767578125, 99.98998260498047, 2261.929931640625)
+
+end)
+
+Section:NewButton("Main Hall", "guess", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(916.568603515625, 99.98998260498047, 2373.021240234375)
+
+end)
+
+Section:NewButton("Yard", "guess", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(780.7301025390625, 97.99992370605469, 2468.014404296875)
+
+end)
+
+local Tab = Window:NewTab("CMDS")
+
+local Section = Tab:NewSection("!give me ak")
+
+local Section = Tab:NewSection("!give me remington")
+
+local Section = Tab:NewSection("!give me m9")
+
+local Section = Tab:NewSection("!give me crude")
+
+local Section = Tab:NewSection("!tp me guard room")
+
+local Section = Tab:NewSection("!tp me yard")
+
+local Section = Tab:NewSection("!tp me crim base")
+
+local Section = Tab:NewSection("!tp me hall")
+
+local char = game.Players.LocalPlayer
+
+char.Chatted:Connect(function(chat)
+    if chat:match("!give me ak") then
+local ohInstance1 = workspace.Prison_ITEMS.giver["AK-47"].ITEMPICKUP
+
+workspace.Remote.ItemHandler:InvokeServer(ohInstance1)
+    end
+end)
+
+
+local char = game.Players.LocalPlayer
+
+char.Chatted:Connect(function(chat)
+    if chat:match("!give me remington") then
+local ohInstance1 = workspace.Prison_ITEMS.giver["Remington 870"].ITEMPICKUP
+
+workspace.Remote.ItemHandler:InvokeServer(ohInstance1)
+    end
+end)
+
+local char = game.Players.LocalPlayer
+
+char.Chatted:Connect(function(chat)
+    if chat:match("!give me m9") then
+local ohInstance1 = workspace.Prison_ITEMS.giver["M9"].ITEMPICKUP
+
+workspace.Remote.ItemHandler:InvokeServer(ohInstance1)
+    end
+end)
+
+local char = game.Players.LocalPlayer
+
+char.Chatted:Connect(function(chat)
+    if chat:match("!give me crude") then
+local ohInstance1 = workspace.Prison_ITEMS.giver["Crude Knife"].ITEMPICKUP
+
+workspace.Remote.ItemHandler:InvokeServer(ohInstance1)
+    end
+end)
+
+local char = game.Players.LocalPlayer
+
+char.Chatted:Connect(function(chat)
+    if chat:match("!tp me crim base") then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-920.821044921875, 95.32717895507812, 2138.347412109375)
+    end
+end)
+
+local char = game.Players.LocalPlayer
+
+char.Chatted:Connect(function(chat)
+    if chat:match("!tp me yard") then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(780.7301025390625, 97.99992370605469, 2468.014404296875)
+
+    end
+end)
+
+local char = game.Players.LocalPlayer
+
+char.Chatted:Connect(function(chat)
+    if chat:match("!tp me guard room") then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(838.4561767578125, 99.98998260498047, 2261.929931640625)
+
+    end
+end)
+
+local char = game.Players.LocalPlayer
+
+char.Chatted:Connect(function(chat)
+    if chat:match("!tp me hall") then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(916.568603515625, 99.98998260498047, 2373.021240234375)
+    end
+end)
+
+local Tab = Window:NewTab("Toggle GUI")
+
+local Section = Tab:NewSection("KeyBind")
+
+Section:NewKeybind("Click to change Bind", "Toggle gui bind", Enum.KeyCode.P, function()
+    Library:ToggleUI()
+end)
